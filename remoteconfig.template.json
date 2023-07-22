@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "582909720114",
-    "project_id": "test-a0425",
-    "storage_bucket": "test-a0425.appspot.com"
+    "project_number": "749437812900",
+    "project_id": "upgames-b965a",
+    "storage_bucket": "upgames-b965a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:582909720114:android:7422f73e42a10012226e2b",
+        "mobilesdk_app_id": "1:749437812900:android:81c894ef4faa8b094ee631",
         "android_client_info": {
           "package_name": "upgames.pinplays"
         }
       },
       "oauth_client": [
         {
-          "client_id": "582909720114-qomk7o9qv5nc882pp0g4iibb4erd85sp.apps.googleusercontent.com",
+          "client_id": "749437812900-5nfrrfi63jquehg6s9kpq7lm2ujq47uq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBNlLWK-5MMh8OTNWeDQfxdauyhL_7aJHA"
+          "current_key": "AIzaSyDR-Y9JBrSi27hsZ3LQn4R5GBjca4YgwoM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "582909720114-qomk7o9qv5nc882pp0g4iibb4erd85sp.apps.googleusercontent.com",
+              "client_id": "749437812900-5nfrrfi63jquehg6s9kpq7lm2ujq47uq.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

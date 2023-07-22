@@ -14,8 +14,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+
   @override
-  void initState() {
+  void initState(){
     super.initState();
   }
 
@@ -23,6 +25,7 @@ class _HomePageState extends State<HomePage> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getString('savedLink') ?? '';
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -39,9 +42,9 @@ class _HomePageState extends State<HomePage> {
               child: CircularProgressIndicator(),
             );
           }
-          // else if (state is EmulatorDetected) {
-          //   return QuizGame();
-          // }
+          else if(state is EmulatorDetected){
+            return QuizGame();
+          }
           else if (state is InternetConnected) {
             return FutureBuilder<String>(
               future: _loadLink(),
@@ -57,24 +60,21 @@ class _HomePageState extends State<HomePage> {
                 }
 
                 final linkFromSharedPreferences = snapshot.data;
-                if (linkFromSharedPreferences != null &&
-                    linkFromSharedPreferences.isNotEmpty) {
+                if (linkFromSharedPreferences != null && linkFromSharedPreferences.isNotEmpty) {
                   WidgetsBinding.instance.addPostFrameCallback((_) {
                     Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>
-                            WebViewPage(link: linkFromSharedPreferences),
+                        builder: (context) => WebViewPage(link: linkFromSharedPreferences),
                       ),
-                      (route) => false,
+                          (route) => false,
                     );
                   });
                 } else {
                   return FutureBuilder<String>(
                     future: remoteConfig.getLinkFromRemoteConfig(),
                     builder: (context, remoteConfigSnapshot) {
-                      if (remoteConfigSnapshot.connectionState ==
-                          ConnectionState.waiting) {
+                      if (remoteConfigSnapshot.connectionState == ConnectionState.waiting) {
                         return const Center(
                           child: CircularProgressIndicator(),
                         );
@@ -85,21 +85,20 @@ class _HomePageState extends State<HomePage> {
                       }
 
                       final linkFromRemoteConfig = remoteConfigSnapshot.data;
-                      if (linkFromRemoteConfig != null &&
-                          linkFromRemoteConfig.isNotEmpty) {
-                        remoteConfig.getLinkFromRemoteConfig();
+                      if (linkFromRemoteConfig != null && linkFromRemoteConfig.isNotEmpty) {
+                       remoteConfig.getLinkFromRemoteConfig();
 
                         WidgetsBinding.instance.addPostFrameCallback((_) {
                           Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
-                              builder: (context) =>
-                                  WebViewPage(link: linkFromRemoteConfig),
+                              builder: (context) => WebViewPage(link: linkFromRemoteConfig),
                             ),
-                            (route) => false,
+                                (route) => false,
                           );
                         });
-                      } else {
+                      }
+                      else{
                         return QuizGame();
                       }
 
@@ -130,4 +129,9 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-}
+
+
+
+
+
+  }

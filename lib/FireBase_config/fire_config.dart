@@ -1,8 +1,6 @@
-import 'dart:convert';
 
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/services.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'config_keys.dart';
 
@@ -39,9 +37,11 @@ class FirebaseRemoteConfigService {
 
 
   Future<String> getLinkFromRemoteConfig() async {
-    final link = _remoteConfig.getString('fire_remote_config');
+    final link = _remoteConfig.getString('url');
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('savedLink', link);
+    if( link.isNotEmpty) {
+      await prefs.setString('savedLink', link);
+    }
    print(link);
     return link;
   }
