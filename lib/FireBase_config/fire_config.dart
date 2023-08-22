@@ -37,7 +37,7 @@ class FirebaseRemoteConfigService {
 
 
   Future<String> getLinkFromRemoteConfig() async {
-    final link = _remoteConfig.getString('url');
+    final link = _remoteConfig.getString('your key');
     SharedPreferences prefs = await SharedPreferences.getInstance();
     if( link.isNotEmpty) {
       await prefs.setString('savedLink', link);

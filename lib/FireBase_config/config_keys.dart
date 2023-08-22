@@ -1,5 +1,5 @@
 class FirebaseRemoteConfigKeys {
-  static const String welcomeMessage = 'url';
+  static const String welcomeMessage = 'your key';
 }
 
 
